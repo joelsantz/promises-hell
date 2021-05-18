@@ -1,6 +1,9 @@
-import { saludar } from './js/components';
 import './styles.css';
+import {searchHero} from './js/callbacks';
 
-const nombre = "Joel";
 
-saludar(nombre);
+const heroId = 'capi';
+
+searchHero( heroId, ( hero ) => {
+    console.log(hero);
+});
