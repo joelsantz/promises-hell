@@ -1,4 +1,3 @@
-
 const heros = {
     capi: {
         name: 'Capitan america',
@@ -14,15 +13,16 @@ const heros = {
     },
 }
 
-
-export const searchHero = ( heroId, callback ) => {
+export const searchHero = (heroId) => {
     const hero = heros[heroId];
-    if( hero ) {
-        callback(null, hero);
-    } else {
-        callback(`No existe Heroe con el id ${heroId}`);
-    }
 
-    //callback( hero );
+    return new Promise( ( resolve, reject ) => {
+        if( hero ) {
+            resolve( hero );
+        } else {
+            reject(`No existe Heroe con el id ${heroId}`);
+        }
+
+    });
 
 }
