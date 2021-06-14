@@ -24,5 +24,32 @@ export const searchHero = (heroId) => {
         }
 
     });
+}
 
+export const searchHeroAsync = async(heroId) => {
+    const hero = heros[heroId];
+    if( hero ) {
+        return hero;
+    } else {
+        throw `No existe Heroe con el id ${heroId}`;
+    }
+}
+
+const slowPromise = new Promise( (resolve, reject) => {
+    setTimeout( () => resolve('Slow promise'), 2000);
+});
+
+const mediumPromise = new Promise( (resolve, reject) => {
+    setTimeout( () => resolve('Medium promise'), 1500);
+});
+
+const fastPromise = new Promise( (resolve, reject) => {
+    setTimeout( () => resolve('Fast promise'), 1000);
+});
+
+
+export {
+    slowPromise,
+    mediumPromise,
+    fastPromise
 }
